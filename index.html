@@ -691,6 +691,226 @@
     color:#9A9486;
   }
 
+  /* =====================================================================
+     ADDITIONS (v2) — everything below is new; nothing above was changed.
+     ===================================================================== */
+
+  /* ---- Hero portrait: arch frame + monogram fallback ---- */
+  .hero-photo{
+    position:relative;
+    width:min(260px, 62vw);
+    aspect-ratio:4 / 5;
+    margin:0 0 2.25rem;
+  }
+  .hero-photo-frame{
+    position:absolute; inset:0;
+    border-radius:999px 999px 6px 6px;
+    overflow:hidden;
+    border:1px solid var(--brass);
+    background:linear-gradient(160deg, #12305c 0%, var(--navy-deep) 100%);
+    z-index:1;
+  }
+  .hero-photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 12%;
+  }
+  .hero-photo-mono{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display);
+    font-size:4.5rem; font-weight:500;
+    color:var(--brass);
+    letter-spacing:0.02em;
+  }
+  /* offset outline gives the "exhibit" mount feel */
+  .hero-photo::before{
+    content:"";
+    position:absolute; inset:0;
+    transform:translate(14px, 14px);
+    border:1px solid var(--hairline-on-navy);
+    border-radius:999px 999px 6px 6px;
+  }
+  .hero-photo-cap{
+    position:absolute; left:0; right:0; bottom:-1.7rem;
+    font-family:var(--font-mono);
+    font-size:0.66rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(250,248,243,0.5);
+  }
+  @media (min-width:980px){
+    .hero-photo{
+      position:absolute;
+      right:clamp(0.5rem, 3vw, 3rem);
+      top:0;
+      width:300px;
+      margin:0;
+    }
+  }
+
+  /* ---- Availability line ---- */
+  .hero-status{
+    display:inline-flex; align-items:center; gap:0.7rem;
+    margin-top:2rem;
+    padding:0.5rem 0.95rem;
+    border:1px solid var(--hairline-on-navy);
+    border-radius:999px;
+    font-family:var(--font-mono);
+    font-size:0.76rem;
+    letter-spacing:0.03em;
+    color:rgba(250,248,243,0.82);
+  }
+  .hero-status::before{
+    content:"";
+    width:8px; height:8px; border-radius:50%;
+    background:#7BC98F;
+    box-shadow:0 0 0 4px rgba(123,201,143,0.18);
+    flex-shrink:0;
+  }
+  .hero-status + .hero-ctas{ margin-top:1.5rem; }
+
+  /* ---- Proof strip ---- */
+  .proof-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:1.5rem 1.25rem;
+    margin-top:clamp(2.5rem, 5vw, 3.5rem);
+    max-width:720px;
+  }
+  .proof-item{
+    border-left:2px solid var(--brass);
+    padding-left:0.9rem;
+  }
+  .proof-figure{
+    font-family:var(--font-display);
+    font-size:clamp(1.6rem, 3vw, 2.1rem);
+    font-weight:600;
+    color:var(--paper);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .proof-label{
+    display:block;
+    margin-top:0.35rem;
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(250,248,243,0.6);
+    line-height:1.45;
+  }
+
+  /* ---- Pi diagram ---- */
+  .pi-diagram{
+    margin:2.25rem 0 2.5rem;
+    max-width:520px;
+  }
+  .pi-diagram svg{ width:100%; height:auto; overflow:visible; }
+  .pi-bar{ fill:var(--navy); }
+  .pi-leg{ fill:var(--brass-deep); }
+  .pi-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .pi-label-on-bar{ fill:var(--paper); }
+  .pi-label-leg{ fill:var(--navy); }
+  .pi-caption{
+    margin-top:0.85rem;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:#9A9486;
+  }
+
+  /* ---- EV ratio bars ---- */
+  .ratio-chart{
+    margin:0 0 1.75rem;
+    display:grid;
+    gap:0.9rem;
+  }
+  .ratio-title{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:#9A9486;
+  }
+  .ratio-row{
+    display:grid;
+    grid-template-columns:118px 1fr;
+    gap:0.9rem;
+    align-items:center;
+    font-family:var(--font-mono);
+    font-size:0.76rem;
+    color:var(--charcoal);
+  }
+  .ratio-track{
+    position:relative;
+    height:26px;
+    background:rgba(11,30,61,0.06);
+    border-radius:2px;
+  }
+  .ratio-bar{
+    height:100%;
+    border-radius:2px;
+    display:flex; align-items:center; justify-content:flex-end;
+    padding-right:0.55rem;
+    font-weight:600;
+    font-size:0.72rem;
+    min-width:3.2rem;
+  }
+  .ratio-bar.is-worst{ background:var(--navy); color:var(--paper); width:100%; }
+  .ratio-bar.is-seattle{ background:var(--brass-deep); color:var(--paper); width:6.5%; }
+  .analysis-note{
+    margin-top:1.1rem;
+    font-family:var(--font-mono);
+    font-size:0.74rem;
+    line-height:1.65;
+    color:#7d7767;
+    border-left:2px solid var(--hairline);
+    padding-left:0.9rem;
+  }
+
+  /* ---- Candid photo in Media ---- */
+  .candid{
+    margin:2.5rem 0 0;
+    display:grid;
+    grid-template-columns:minmax(0, 340px) 1fr;
+    gap:1.75rem;
+    align-items:end;
+  }
+  .candid img{
+    width:100%;
+    aspect-ratio:4 / 3;
+    object-fit:cover;
+    border:1px solid var(--hairline);
+    border-radius:2px;
+  }
+  .candid figcaption{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:1.15rem;
+    line-height:1.45;
+    color:var(--navy);
+    max-width:420px;
+  }
+  .candid figcaption small{
+    display:block;
+    margin-top:0.6rem;
+    font-family:var(--font-mono);
+    font-style:normal;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass-deep);
+  }
+  @media (max-width:720px){
+    .candid{ grid-template-columns:1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -723,10 +943,23 @@
   <!-- ===================== HERO ===================== -->
   <section id="top" class="hero">
     <div class="container hero-inner">
+
+      <!-- Portrait. Uses assets/headshot.jpg — until that file exists in your repo, the "AL" monogram shows instead. -->
+      <figure class="hero-photo" style="margin-left:0;margin-right:0;margin-top:0;">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-mono" aria-hidden="true">AL</div>
+          <img src="assets/headshot.jpg" alt="Portrait of Affan Leebe" width="800" height="1000" loading="eager" onerror="this.style.display='none'">
+        </div>
+        <figcaption class="hero-photo-cap">Chicago · Urbana-Champaign</figcaption>
+      </figure>
+
       <div class="hero-eyebrow">Data Science · Strategy · Entrepreneurship</div>
       <h1>Affan Leebe</h1>
       <p class="hero-sub">Building a career — and a life — where ambition and purpose move together.</p>
       <p class="hero-body">I study data science at the University of Illinois and spend my summers where strategy, data, and product overlap — technology advisory at PwC, AI strategy at Loop Capital Markets, and investment analytics at Balyasny. In between, I build things: a campus marketplace, a podcast, a few ideas still in the oven.</p>
+
+      <div class="hero-status">Open to 2027 full-time roles · Strategy, data &amp; product</div>
+
       <div class="hero-ctas">
         <a href="Leebe_Affan_Resume_Consulting.pdf" class="btn btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0l-5-5m5 5l5-5"/><path d="M4 20h16"/></svg>
@@ -734,6 +967,25 @@
         </a>
         <a href="mailto:aleebe21@gmail.com" class="btn btn-ghost">Email Me</a>
         <a href="https://www.linkedin.com/in/affanleebe/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+
+      <div class="proof-strip" aria-label="Selected results">
+        <div class="proof-item">
+          <div class="proof-figure">15%</div>
+          <span class="proof-label">Weekly-active-user lift · PwC</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-figure">$25M+</div>
+          <span class="proof-label">Projected revenue sourced · Loop Capital</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-figure">2,000+</div>
+          <span class="proof-label">Active users · Illini Marketplace</span>
+        </div>
+        <div class="proof-item">
+          <div class="proof-figure">2M+</div>
+          <span class="proof-label">Views · Food Reviews</span>
+        </div>
       </div>
 
       <div class="credentials">
@@ -755,6 +1007,19 @@
         </div>
         <div class="reveal">
           <p class="lede">π has two legs on a single crossbar, which is the honest shape of how I work: real depth in strategy consulting and in data and product, resting on a broad base of enterprise technology and finance. The depth is what I'm hired for. The base is why the recommendations survive contact with the people who have to build them.</p>
+
+          <div class="pi-diagram">
+            <svg viewBox="0 0 520 210" role="img" aria-label="A pi-shaped diagram: a crossbar of enterprise technology and finance and ventures resting on two legs, strategy consulting and data and product.">
+              <rect class="pi-bar" x="20" y="18" width="480" height="46" rx="2"/>
+              <text class="pi-label pi-label-on-bar" x="260" y="46" text-anchor="middle">Enterprise Technology · Finance &amp; Ventures</text>
+              <rect class="pi-leg" x="120" y="64" width="22" height="118"/>
+              <rect class="pi-leg" x="378" y="64" width="22" height="118"/>
+              <text class="pi-label pi-label-leg" x="131" y="202" text-anchor="middle">Strategy Consulting</text>
+              <text class="pi-label pi-label-leg" x="389" y="202" text-anchor="middle">Data &amp; Product</text>
+            </svg>
+            <div class="pi-caption">Two legs of depth, one crossbar of breadth.</div>
+          </div>
+
           <div class="pillars-grid">
             <div class="pillar">
               <span class="pillar-tag">Leg one</span>
@@ -926,7 +1191,23 @@
               <span class="stat-label">Worst EV-to-charger ratio, vs. 55:1 in Seattle</span>
             </div>
           </div>
+
+          <div class="ratio-chart" role="img" aria-label="Bar chart: worst suburb has 1,200 EVs per charger, Seattle has 55.">
+            <div class="ratio-title">EVs per charger, drawn to scale</div>
+            <div class="ratio-row">
+              <span>Worst suburb</span>
+              <div class="ratio-track"><div class="ratio-bar is-worst">1,200</div></div>
+            </div>
+            <div class="ratio-row">
+              <span>Seattle</span>
+              <div class="ratio-track"><div class="ratio-bar is-seattle">55</div></div>
+            </div>
+          </div>
+
           <p style="font-size:0.99rem; line-height:1.65;">The output was a shortlist: 7 high-priority suburban sites across 502 cities where new infrastructure would serve the most drivers per dollar.</p>
+
+          <!-- When you have the repo link, add: <a class="media-link" href="YOUR-GITHUB-URL" target="_blank" rel="noopener">View the code →</a> -->
+          <p class="analysis-note">A correlation shows where to look; it doesn't on its own prove cause. The ranking is a starting point for siting decisions, not a final answer.</p>
         </div>
       </div>
     </div>
@@ -939,6 +1220,12 @@
         <div class="eyebrow">Exhibit D — Media &amp; Creative</div>
         <h2 class="section-heading">Outside the deck</h2>
       </div>
+
+      <!-- Candid photo. Uses assets/candid.jpg — if that file isn't in your repo yet, this block hides itself. -->
+      <figure class="candid reveal" id="candidPhoto">
+        <img src="assets/candid.jpg" alt="Affan Leebe speaking on stage at the ATLAS Fellowship event" width="1200" height="900" loading="lazy" onerror="document.getElementById('candidPhoto').style.display='none'">
+        <figcaption>Presenting is presenting, whether the room is a client boardroom or an ATLAS Fellowship stage.<small>ATLAS Fellow</small></figcaption>
+      </figure>
 
       <div class="media-grid reveal">
         <div class="media-card">
