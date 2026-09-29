@@ -613,45 +613,6 @@
   }
   .media-link:hover{ opacity:0.6; }
 
-  /* ===================== PHILOSOPHY ===================== */
-  .philosophy{
-    position:relative;
-    background:var(--navy);
-    color:var(--paper);
-    overflow:hidden;
-  }
-  .philosophy::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84'%3E%3Cpath d='M0 42L42 0L84 42L42 84Z M42 0L42 84M0 42L84 42' stroke='%23C9A15C' stroke-opacity='0.07' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-    background-size:84px 84px;
-    pointer-events:none;
-  }
-  .philosophy-inner{
-    position:relative; z-index:1;
-    max-width:760px;
-  }
-  .philosophy-quote{
-    font-family:var(--font-display);
-    font-weight:400;
-    font-style:italic;
-    font-size:clamp(1.4rem, 3vw, 2rem);
-    line-height:1.5;
-    color:var(--paper);
-    margin-top:1.75rem;
-  }
-  .philosophy-quote .accent{ color:var(--brass); font-style:normal; }
-  .philosophy-gloss{
-    margin-top:2rem;
-    font-family:var(--font-mono);
-    font-size:0.82rem;
-    letter-spacing:0.02em;
-    color:rgba(250,248,243,0.55);
-    border-left:2px solid var(--brass);
-    padding-left:1.1rem;
-    line-height:1.7;
-  }
-
   /* ===================== CONTACT ===================== */
   .contact{ text-align:left; }
   .contact-inner{ max-width:680px; }
